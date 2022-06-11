@@ -1,0 +1,21 @@
+sudo yum update -y
+sudo yum install git -y
+
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+sudo yum groupinstall "Development tools" -y
+
+vi ~/.bashrc
+
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+source ~/.bashrc
+
+pyenv install anaconda3-2020.11
+pyenv global anaconda3-2020.11
+
+conda init
+
+conda activate
