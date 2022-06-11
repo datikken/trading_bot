@@ -4,6 +4,10 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import copy
 
+from dotenv import load_dotenv, dotenv_values
+
+load_dotenv()  # take environment variables from .env.
+config = dotenv_values(".env")  # config = {"USER": "foo", "EMAIL": "foo@example.org"}
 
 # To find a slope of price line
 def indSlope(series, n):
@@ -79,7 +83,7 @@ def getMaxMinChannel(DF, n):
     return(maxx,minn)
 
 
-apiKey='WNP76CCL416RU4S5' # добавьте ключ API
+apiKey=config['API_KEY']
 interval_var = '5min'
 symbol='ETH'
 path='https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol='+symbol+'&market=USD&interval='+interval_var+'&apikey='+apiKey+'&datatype=csv&outputsize=full'
